@@ -1,7 +1,7 @@
 public class MaximumFinder {
-    //Method to find maximum of three integers
-    public static Float testMaximum(Float v1, Float v2, Float v3){
-        Float max=v1;
+    //Method to find maximum of three strings
+    public static String testMaximum(String v1, String v2, String v3){
+        String max=v1;
         //Assuming v1 is the maximum
 
         if(v2.compareTo(max)>0){
@@ -15,8 +15,8 @@ public class MaximumFinder {
 
     public static void main(String[] args){
         System.out.println("Find Maximum of Three Integers");
-        System.out.println("Maximum: "+ testMaximum(3.3f,2.2f,1.1f));
-        System.out.println("Maximum: "+ testMaximum(1.1f,3.3f,2.2f));
-        System.out.println("Maximum: "+ testMaximum(1.1f,2.2f,3.3f));
+        System.out.println("Maximum: "+ testMaximum("Apple","Peach","Banana"));
+        System.out.println("Maximum: "+ testMaximum("Apple","Banana","Peach"));
+        System.out.println("Maximum: "+ testMaximum("Banana","Peach","Apple"));
     }
 }

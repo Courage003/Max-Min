@@ -1,5 +1,15 @@
-public class MaximumFinder {
-    // Generic method to find the maximum of three values
+public class MaximumFinder<T extends Comparable<T>> {
+    private T v1;
+    private T v2;
+    private T v3;
+
+    public MaximumFinder(T v1, T v2, T v3) {
+        this.v1 = v1;
+        this.v2 = v2;
+        this.v3 = v3;
+    }
+
+    //Static Generic method to find the maximum of three values
     public static <T extends Comparable<T>> T testMaximum(T v1, T v2, T v3){
         T max=v1;
         //Assuming v1 is the maximum
@@ -13,20 +23,25 @@ public class MaximumFinder {
         return max;
     }
 
+    // Instance method to call the static testMaximum method using instance variables
+    public T testMaximum() {
+        return testMaximum(v1, v2, v3);
+    }
+
     public static void main(String[] args){
+        // Test with Integers
         System.out.println("Find Maximum of Three Integers");
-        System.out.println("Maximum: " + testMaximum(3, 2, 1)); // Integer test case
-        System.out.println("Maximum: " + testMaximum(1, 3, 2));
-        System.out.println("Maximum: " + testMaximum(1, 2, 3));
+        MaximumFinder<Integer> intFinder = new MaximumFinder<>(3, 2, 1);
+        System.out.println("Maximum: " + intFinder.testMaximum());
 
+        // Test with Floats
         System.out.println("\nFind Maximum of Three Floats");
-        System.out.println("Maximum: " + testMaximum(3.3f, 2.2f, 1.1f)); // Float test case
-        System.out.println("Maximum: " + testMaximum(1.1f, 3.3f, 2.2f));
-        System.out.println("Maximum: " + testMaximum(1.1f, 2.2f, 3.3f));
+        MaximumFinder<Float> floatFinder = new MaximumFinder<>(3.3f, 2.2f, 1.1f);
+        System.out.println("Maximum: " + floatFinder.testMaximum());
 
+        // Test with Strings
         System.out.println("\nFind Maximum of Three Strings");
-        System.out.println("Maximum: " + testMaximum("Apple", "Peach", "Banana")); // String test case
-        System.out.println("Maximum: " + testMaximum("Banana", "Apple", "Peach"));
-        System.out.println("Maximum: " + testMaximum("Peach", "Banana", "Apple"));
+        MaximumFinder<String> stringFinder = new MaximumFinder<>("Apple", "Peach", "Banana");
+        System.out.println("Maximum: " + stringFinder.testMaximum());
     }
 }
